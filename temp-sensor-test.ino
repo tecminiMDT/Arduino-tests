@@ -27,7 +27,7 @@ void setup(void)
  Serial.println("Dallas Temperature IC Control Library Demo");
  // Start up the library
  sensors.begin();
-}
+// }
 
 /********************************************************************/
 // call the oneWireSearch routine to get a count of sensors first I
@@ -50,11 +50,11 @@ void setup(void)
 // 0.1.01 first published version
 // 0.1.02 small output changes
 
-#include <OneWire.h>
+// #include <OneWire.h>
 
-void OneWireSetup()
-{
-  Serial.begin(9600);
+// void setup2()
+// {
+//  Serial.begin(9600);
   Serial.println("//\n// Start oneWireSearch.ino \n//");
 
   for (uint8_t pin = 2; pin < 13; pin++)
@@ -64,7 +64,7 @@ void OneWireSetup()
   Serial.println("\n//\n// End oneWireSearch.ino \n//");
 }
 
-void OneWireLoop()
+void loop()
 {
 }
 
@@ -77,12 +77,12 @@ uint8_t findDevices(int pin)
 
   if (ow.search(address))
   {
-    Serial.print("\nuint8_t pin");
+    Serial.print("\nuint8_t pin:");
     Serial.print(pin, DEC);
-    Serial.println("[][8] = {");
+    Serial.println(" listing 64 byte (8x8) address sets:");
     do {
       count++;
-      Serial.println("  {");
+      Serial.print("  {  ");
       for (uint8_t i = 0; i < 8; i++)
       {
         Serial.print("0x");
@@ -93,8 +93,8 @@ uint8_t findDevices(int pin)
       Serial.println("  },");
     } while (ow.search(address));
 
-    Serial.println("};");
-    Serial.print("// nr devices found: ");
+    Serial.println("");
+    Serial.print("// number of devices found: ");
     Serial.println(count);
   }
 
@@ -137,5 +137,5 @@ void TempDisplay() {
  Serial.print("Temperature 4 is: ");
  Serial.print(sensors.getTempCByIndex(4));
  Serial.println(" ");
-   delay(1000);
+   delay(5000);
 }
