@@ -20,8 +20,7 @@ OneWire oneWire(ONE_WIRE_BUS);
 // Pass our oneWire reference to Dallas Temperature.
 DallasTemperature sensors(&oneWire);
 /********************************************************************/
-void setup(void)
-{
+void setup() {
  // start serial port
  Serial.begin(9600);
  Serial.println("Dallas Temperature IC Control Library Demo");
@@ -63,13 +62,7 @@ void setup(void)
   }
   Serial.println("\n//\n// End oneWireSearch.ino \n//");
 }
-
-void loop()
-{
-}
-
-uint8_t findDevices(int pin)
-{
+uint8_t findDevices(int pin) {
   OneWire ow(pin);
 
   uint8_t address[8];
@@ -101,18 +94,15 @@ uint8_t findDevices(int pin)
   return count;
 }
 /********************************************************************/
-// call the Dallas routine to get all sensor addresses
+// call the Dallas routine to get all sensor temp values
 // slight mods only like removing the now redundant lib reference
 // also kept the comm speed to 9600 for now not 115k
 /********************************************************************/
 /********************************************************************/
 /********************************************************************/
-void loop(void)
-{
-	TempDisplay();
-}
+void loop() {
+
 /********************************************************************/
-void TempDisplay() {
  // call sensors.requestTemperatures() to issue a global temperature
  // request to all devices on the bus
 /********************************************************************/
