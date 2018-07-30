@@ -97,7 +97,8 @@ uint8_t findDevices(int pin) {
   }
   return count;
 }
-
+void loop() {
+}
 void tempSense() {
 /********************************************************************/
 // call the Dallas routine to get all sensor temp values
@@ -133,6 +134,4 @@ void tempSense() {
  Serial.print(sensors.getTempCByIndex(4));
  Serial.println(" ");
    delay(5000);
-}
-void loop() {
 }
