@@ -61,6 +61,11 @@ void setup() {
     findDevices(pin);
   }
   Serial.println("\n//\n// End oneWireSearch.ino \n//");
+for (int i=0; i <= 2; i++){
+    Serial.print("Temp Reading Set ");
+    Serial.println(i);
+    tempSense();
+  }
 }
 uint8_t findDevices(int pin) {
   OneWire ow(pin);
@@ -90,9 +95,10 @@ uint8_t findDevices(int pin) {
     Serial.print("// number of devices found: ");
     Serial.println(count);
   }
-
   return count;
 }
+
+void tempSense() {
 /********************************************************************/
 // call the Dallas routine to get all sensor temp values
 // slight mods only like removing the now redundant lib reference
@@ -100,7 +106,6 @@ uint8_t findDevices(int pin) {
 /********************************************************************/
 /********************************************************************/
 /********************************************************************/
-void loop() {
 
 /********************************************************************/
  // call sensors.requestTemperatures() to issue a global temperature
@@ -128,4 +133,6 @@ void loop() {
  Serial.print(sensors.getTempCByIndex(4));
  Serial.println(" ");
    delay(5000);
+}
+void loop() {
 }
